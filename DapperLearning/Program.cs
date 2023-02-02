@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
-using System.Data;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace DapperLearning
 {
@@ -19,10 +12,10 @@ namespace DapperLearning
             using (connection)
             {
                 connection.Open();
-                Queries.ExposeUsers(connection);
-                Queries.GetPostsOfUser("hfulham0@mtv.com", connection);
+                Queries.GetUsers(connection);
+                Queries.GetPosts("hfulham0@mtv.com", connection);
                 Queries.InsertUser("Brunhilde", "Paramore", "556-383-3458", "bparamore0@jigsy.com", connection);
-                Queries.ExposeUsers(connection);
+                Queries.GetUsers(connection);
             }
         }
     }
