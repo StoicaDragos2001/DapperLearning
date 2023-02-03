@@ -16,6 +16,7 @@ namespace DapperLearning
                 Queries.GetPosts("hfulham0@mtv.com", connection);
                 Queries.InsertUser("Brunhilde", "Paramore", "556-383-3458", "bparamore0@jigsy.com", connection);
                 Queries.GetUsers(connection);
+
             }
         }
     }
