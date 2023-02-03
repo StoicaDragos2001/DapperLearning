@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\MessageConstants.cs" />
+    <Compile Include="Exceptions\UserAlreadyInDatabaseException.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\PostMessage.cs" />
     <Compile Include="Models\Post.cs" />
