@@ -2,12 +2,13 @@
 using DapperLearning.Constants;
 using System;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace DapperLearning
 {
     internal static class Queries
     {
-        public static void GetUsers(SqlConnection connection)
+        public async static Task GetUsersAsync(SqlConnection connection)
         {
             Console.WriteLine(MessageConstants.FirstExercise);
             var sqlQuery = "SELECT * FROM Users";
@@ -19,7 +20,7 @@ namespace DapperLearning
             Console.WriteLine();
         }
 
-        public static void GetPosts(string userEmail, SqlConnection connection)
+        public async static Task GetPostsAsync(string userEmail, SqlConnection connection)
         {
             Console.WriteLine(MessageConstants.SecondExercise);
             var sqlQuery = String.Format(@"SELECT *
@@ -44,7 +45,7 @@ namespace DapperLearning
             Console.WriteLine();
         }
 
-        public static void InsertUser(string FirstName, string LastName, string PhoneNumber, string Email, SqlConnection connection)
+        public async static Task InsertUserAsync(string FirstName, string LastName, string PhoneNumber, string Email, SqlConnection connection)
         {
             Console.WriteLine(MessageConstants.ThirdExercise);
             var user = new User()

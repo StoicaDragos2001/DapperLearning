@@ -9,6 +9,5 @@ namespace DapperLearning
         public DateTime CreatedDate { get; set; }
         public Guid Userid { get; set; }
         public User User { get; set; }
-
     }
 }
