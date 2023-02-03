@@ -11,11 +11,11 @@ namespace DapperLearning
 
             using (connection)
             {
-                connection.Open();
-                Queries.GetUsers(connection);
-                Queries.GetPosts("hfulham0@mtv.com", connection);
-                Queries.InsertUser("Brunhilde", "Paramore", "556-383-3458", "bparamore0@jigsy.com", connection);
-                Queries.GetUsers(connection);
+                await connection.OpenAsync();
+                await Queries.GetUsers(connection);
+                await Queries.GetPosts("hfulham0@mtv.com", connection);
+                await Queries.InsertUser("Brunhilde", "Paramore", "556-383-3458", "bparamore0@jigsy.com", connection);
+                await Queries.GetUsers(connection);
 
             }
         }
