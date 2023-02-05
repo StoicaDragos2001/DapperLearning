@@ -22,20 +22,22 @@ namespace DapperLearning
 
         public async static Task GetPostsAsync(string userEmail, SqlConnection connection)
         {
+            var parameters = new { email = userEmail };
             Console.WriteLine(MessageConstants.SecondExercise);
-            var sqlQuery = String.Format(@"SELECT *
+            var sqlQuery = @"SELECT *
                                 FROM Posts p
                                 JOIN Users u ON p.UserId = u.Id
-                                WHERE u.Email = '{0}' AND
+                                WHERE u.Email = @email AND
                                 p.CreatedDate > '1/1/2023'
-                                ORDER BY p.CreatedDate ASC", userEmail);
+                                ORDER BY p.CreatedDate ASC";
             var queryResult = connection.Query<Post, User, Post>(
                 sqlQuery,
                 (post, user) =>
                 {
                     post.User = user;
                     return post;
-                }
+                },
+                parameters
                 );
             foreach (var row in queryResult)
             {
